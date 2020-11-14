@@ -31,6 +31,11 @@
             title: 'England Covid Data',
         };
 
+        let config = {
+            responsive: true,
+            scrollZoom: true,
+        }
+
         let plot = [
             { x: dates, y: deaths, type: 'scatter', mode: "lines", name: "Deaths" },
             { x: dates, y: casesBySpecimenDate, type: "scatter", mode: "lines", name: "Cases by Specimen date" },
@@ -38,7 +43,7 @@
             { x: dates, y: covidOccupiedMVBeds, type: "scatter", mode: "lines", name: "Occupied ITU Bed" }
         ];
 
-        Plotly.newPlot('myDiv', plot, layout);
+        Plotly.newPlot('myDiv', plot, layout, config);
     });
 
 
