@@ -1,6 +1,9 @@
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="covid19.js"></script>
+<div id=lastUpdated></div>
 <script>
+
+    let lastDate;
 
     update().then(d => {
         let height = 600;
@@ -11,6 +14,10 @@
         let dates = data.map(function (obj) {
             return obj.date;
         });
+
+        lastDate = dates[0];
+        document.getElementById("lastUpdated").innerText = `Last updated: ${lastDate}`;
+
         let deaths = data.map(function (obj) {
             return obj.deathsDaily;
         });
@@ -45,7 +52,6 @@
 
         Plotly.newPlot('myDiv', plot, layout, config);
     });
-
-
 </script>
+
 <div id=myDiv></div>
