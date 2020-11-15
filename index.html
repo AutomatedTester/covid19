@@ -28,6 +28,10 @@
             return obj.casesBySpecimenDate;
         });
 
+        let casesDaily = data.map(obj => {
+            return obj.casesDaily;
+        })
+
         let hospitalCases = data.map(function (obj) {
             return obj.hospitalCases;
         });
@@ -48,6 +52,7 @@
         let plot = [
             { x: dates, y: deaths, type: 'scatter', mode: "lines", name: "Deaths", fill: 'tozeroy' },
             { x: dates, y: casesBySpecimenDate, type: "scatter", mode: "lines", name: "Cases by Specimen date", fill: 'tozeroy' },
+            { x: dates, y: casesDaily, type: "scatter", mode: "lines", name: "Cases Reported Daily", fill: "tozeroy" },
             { x: dates, y: hospitalCases, type: "scatter", mode: "lines", name: "Hospital Cases", fill: 'tozeroy' },
             { x: dates, y: covidOccupiedMVBeds, type: "scatter", mode: "lines", name: "Occupied ITU Bed", fill: 'tozeroy' }
         ];
