@@ -10,14 +10,11 @@ let filters = [
 
 let structure = {
     "date": "date",
-    "name": "areaName",
-    "code": "areaCode",
+    "casesBySpecimenDate": "newCasesBySpecimenDate",
     "covidOccupiedMVBeds": "covidOccupiedMVBeds",
     "hospitalCases": "hospitalCases",
     "casesDaily": "newCasesByPublishDate",
-    "casesBySpecimenDate": "newCasesBySpecimenDate",
     "deathsDaily": "newDeathsByDeathDate",
-    "deathsCumulative": "cumDeathsByDeathDate",
 }
 
 let apiParams = {

@@ -1,5 +1,6 @@
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="javascript/covid19.js"></script>
+<script src="javascript/layout.js"></script>
 <link rel="stylesheet" href="css/covid19.css">
 <div id=lastUpdated></div>
 <script>
@@ -52,7 +53,14 @@
         ];
 
         Plotly.newPlot('myDiv', plot, layout, config);
+
+        let table = document.querySelector("table");
+        let keys = Object.keys(data[0]);
+        generateTableHead(table, keys);
+        generateTable(table, data.slice(0, 7));
     });
 </script>
 
 <div id=myDiv></div>
+
+<table></table>
