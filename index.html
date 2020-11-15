@@ -13,18 +13,18 @@
         let margin = ({ top: 20, right: 20, bottom: 30, left: 30 });
 
         let data = d.data;
-        let dates = data.map(function (obj) {
+        let dates = data.map(obj => {
             return obj.date;
         });
 
         lastDate = dates[0];
         document.getElementById("lastUpdated").innerText = `Last updated: ${lastDate}`;
 
-        let deaths = data.map(function (obj) {
+        let deaths = data.map(obj => {
             return obj.deathsDaily;
         });
 
-        let casesBySpecimenDate = data.map(function (obj) {
+        let casesBySpecimenDate = data.map(obj => {
             return obj.casesBySpecimenDate;
         });
 
@@ -32,7 +32,7 @@
             return obj.casesDaily;
         })
 
-        let hospitalCases = data.map(function (obj) {
+        let hospitalCases = data.map(obj => {
             return obj.hospitalCases;
         });
 
