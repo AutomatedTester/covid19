@@ -67,6 +67,20 @@
                     }
                 },
                 {
+                    name: "Super Saturday (Pub's and hairdressers reopen)",
+                    type: "line",
+                    x0: '2020-07-04',
+                    y0: 0,
+                    x1: '2020-07-04',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
+                },
+                {
                     name: "Eat out to help out starts",
                     type: "line",
                     x0: '2020-08-03',
@@ -144,7 +158,18 @@
                     showarrow: true,
                     arrowhead: 7,
                     ax: 10,
-                    ay: -40
+                    ay: -30
+                },
+                {
+                    x: "2020-07-04",
+                    y: Math.max(...casesBySpecimenDate) - 10,
+                    xref: 'x',
+                    yref: 'y',
+                    text: "Super Saturday (Pub's and Hairdressers reopen)",
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: -10,
+                    ay: 40
                 },
                 {
                     x: "2020-08-03",
