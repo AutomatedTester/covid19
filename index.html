@@ -37,6 +37,10 @@
 
         let layout = {
             title: 'England Covid Data',
+            xaxis: {
+                range: [dates[dates.length - 1], dates[0]],
+                autorange: false
+            },
             shapes: [
                 {
                     name: "First Lockdown",
