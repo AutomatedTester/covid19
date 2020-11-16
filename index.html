@@ -95,6 +95,20 @@
                     }
                 },
                 {
+                    name: "Indoor Events<br/>Close-contact beauty services",
+                    type: "line",
+                    x0: '2020-08-15',
+                    y0: 0,
+                    x1: '2020-08-15',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
+                },
+                {
                     name: "Eat out to help out ends",
                     type: "line",
                     x0: '2020-08-31',
@@ -181,6 +195,17 @@
                     arrowhead: 7,
                     ax: 10,
                     ay: -40
+                },
+                {
+                    x: "2020-08-15",
+                    y: Math.max(...casesBySpecimenDate) - 10,
+                    xref: 'x',
+                    yref: 'y',
+                    text: 'Indoor Events <br> Close-contact beauty services',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: -30,
+                    ay: 80
                 },
                 {
                     x: "2020-08-31",
