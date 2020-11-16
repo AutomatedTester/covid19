@@ -33,8 +33,139 @@
             return obj.covidOccupiedMVBeds;
         });
 
+        let eatOutStart = [0, Math.max(...casesBySpecimenDate)]
+
         let layout = {
             title: 'England Covid Data',
+            shapes: [
+                {
+                    name: "First Lockdown",
+                    type: "line",
+                    x0: '2020-03-23',
+                    y0: 0,
+                    x1: '2020-03-23',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
+                },
+                {
+                    name: "Eat out to help out starts",
+                    type: "line",
+                    x0: '2020-08-03',
+                    y0: 0,
+                    x1: '2020-08-03',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
+                },
+                {
+                    name: "Eat out to help out ends",
+                    type: "line",
+                    x0: '2020-08-03',
+                    y0: 0,
+                    x1: '2020-08-03',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
+                },
+                {
+                    name: "Schools Return",
+                    type: "line",
+                    x0: '2020-09-03',
+                    y0: 0,
+                    x1: '2020-09-03',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
+                },
+                {
+                    name: "Second Lockdown",
+                    type: "line",
+                    x0: '2020-11-05',
+                    y0: 0,
+                    x1: '2020-11-05',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
+                }
+            ],
+            annotations: [
+                {
+                    x: "2020-03-23",
+                    y: Math.max(...casesBySpecimenDate) - 10,
+                    xref: 'x',
+                    yref: 'y',
+                    text: 'First Lockdown',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: 10,
+                    ay: -40
+                },
+                {
+                    x: "2020-08-03",
+                    y: Math.max(...casesBySpecimenDate) - 10,
+                    xref: 'x',
+                    yref: 'y',
+                    text: 'Eat out to help out starts',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: 10,
+                    ay: -40
+                },
+                {
+                    x: "2020-08-31",
+                    y: Math.max(...casesBySpecimenDate) - 10,
+                    xref: 'x',
+                    yref: 'y',
+                    text: 'Eat out to help out ends',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: 10,
+                    ay: -20
+                },
+                {
+                    x: "2020-09-03",
+                    y: Math.max(...casesBySpecimenDate) - 10,
+                    xref: 'x',
+                    yref: 'y',
+                    text: 'Schools Return',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: 10,
+                    ay: 40
+                },
+                {
+                    x: "2020-11-05",
+                    y: Math.max(...casesBySpecimenDate) - 10,
+                    xref: 'x',
+                    yref: 'y',
+                    text: 'Second lockdown',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: 10,
+                    ay: -40
+                }
+            ]
         };
 
         let config = {
