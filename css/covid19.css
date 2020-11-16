@@ -2,8 +2,12 @@ html {
     font-family: "Open Sans", verdana, arial, sans-serif;
 }
 
+h3 {
+    padding-left: 100px;
+}
+
 table {
-    padding: 100px;
+    padding-left: 100px;
 }
 
 thead {
