@@ -171,11 +171,25 @@ function generateGraph() {
                     }
                 },
                 {
-                    name: "Second Lockdown",
+                    name: "Second Lockdown Starts",
                     type: "line",
                     x0: '2020-11-05',
                     y0: 0,
                     x1: '2020-11-05',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
+                },
+                {
+                    name: "Second Lockdown Ends",
+                    type: "line",
+                    x0: '2020-12-02',
+                    y0: 0,
+                    x1: '2020-12-02',
                     yref: 'paper',
                     y1: 1,
                     line: {
@@ -268,7 +282,18 @@ function generateGraph() {
                     y: Math.max(...casesBySpecimenDate) - 10,
                     xref: 'x',
                     yref: 'y',
-                    text: 'Second lockdown',
+                    text: 'Second lockdown Starts',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: 10,
+                    ay: -40
+                },
+                {
+                    x: "2020-12-02",
+                    y: Math.max(...casesBySpecimenDate) - 10,
+                    xref: 'x',
+                    yref: 'y',
+                    text: 'Second lockdown Ends',
                     showarrow: true,
                     arrowhead: 7,
                     ax: 10,
