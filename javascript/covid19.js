@@ -296,8 +296,8 @@ function generateGraph() {
                     text: 'Second lockdown Ends',
                     showarrow: true,
                     arrowhead: 7,
-                    ax: 10,
-                    ay: -40
+                    ax: 20,
+                    ay: -20
                 }
             ]
         };
