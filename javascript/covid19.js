@@ -197,6 +197,20 @@ function generateGraph() {
                         width: 1.5,
                         dash: 'dot'
                     }
+                },
+                {
+                    name: "Tier 4 Introduced",
+                    type: "line",
+                    x0: '2020-12-20',
+                    y0: 0,
+                    x1: '2020-12-20',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
                 }
             ],
             annotations: [
@@ -294,6 +308,17 @@ function generateGraph() {
                     xref: 'x',
                     yref: 'y',
                     text: 'Second lockdown Ends',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: 20,
+                    ay: -20
+                },
+                {
+                    x: "2020-12-20",
+                    y: Math.max(...casesBySpecimenDate) - 10,
+                    xref: 'x',
+                    yref: 'y',
+                    text: 'Tier 4 Introduced',
                     showarrow: true,
                     arrowhead: 7,
                     ax: 20,
