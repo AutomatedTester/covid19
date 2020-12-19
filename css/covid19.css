@@ -14,7 +14,8 @@ thead {
     text-transform: capitalize;
 }
 
-td {
+th, td {
     padding: 10px;
     margin: 4px;
+    border: 1px dotted #999999;
 }
