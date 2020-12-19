@@ -339,7 +339,7 @@ function generateGraph() {
             { x: dates, y: hospitalCases, type: "scatter", mode: "lines", name: "Hospital Cases", fill: 'tozeroy' },
             { x: dates, y: covidOccupiedMVBeds, type: "scatter", mode: "lines", name: "Occupied ITU Bed", fill: 'tozeroy' }
         ];
-
+        document.querySelector("h3").innerText = "Last 7 days of data";
         Plotly.newPlot('myDiv', plot, layout, config);
 
         let table = document.querySelector("table");
