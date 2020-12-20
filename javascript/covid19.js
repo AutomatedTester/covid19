@@ -66,7 +66,6 @@ function generateGraph() {
         let eatOutStart = [0, Math.max(...casesBySpecimenDate)]
 
         let layout = {
-            title: 'England Covid Data',
             xaxis: {
                 range: [dates[dates.length - 1], dates[0]],
                 autorange: false
@@ -216,106 +215,96 @@ function generateGraph() {
             annotations: [
                 {
                     x: "2020-03-23",
-                    y: Math.max(...casesBySpecimenDate) - 10,
                     xref: 'x',
                     yref: 'y',
                     text: 'First Lockdown',
                     showarrow: true,
                     arrowhead: 7,
-                    ax: 10,
+                    ax: -10,
                     ay: -40
                 },
                 {
                     x: "2020-06-15",
-                    y: Math.max(...casesBySpecimenDate) - 10,
                     xref: 'x',
                     yref: 'y',
-                    text: 'Non-essential shops reopen',
+                    text: 'Non-essential<br>shops reopen',
                     showarrow: true,
                     arrowhead: 7,
-                    ax: 10,
+                    ax: -10,
                     ay: -30
                 },
                 {
                     x: "2020-07-04",
-                    y: Math.max(...casesBySpecimenDate) - 10,
                     xref: 'x',
                     yref: 'y',
                     text: "Super Saturday <br>(Pub's and Hairdressers reopen)",
                     showarrow: true,
                     arrowhead: 7,
                     ax: -10,
-                    ay: 40
+                    ay: -140
                 },
                 {
                     x: "2020-08-03",
-                    y: Math.max(...casesBySpecimenDate) - 10,
                     xref: 'x',
                     yref: 'y',
-                    text: 'Eat out to help out starts',
+                    text: 'Eat out to help out<br>starts',
                     showarrow: true,
                     arrowhead: 7,
-                    ax: 10,
-                    ay: -40
+                    ax: -8,
+                    ay: -60
                 },
                 {
                     x: "2020-08-15",
-                    y: Math.max(...casesBySpecimenDate) - 10,
                     xref: 'x',
                     yref: 'y',
                     text: 'Indoor Events <br> Close-contact beauty services',
                     showarrow: true,
                     arrowhead: 7,
                     ax: -30,
-                    ay: 80
+                    ay: -100
                 },
                 {
                     x: "2020-08-31",
-                    y: Math.max(...casesBySpecimenDate) - 10,
                     xref: 'x',
                     yref: 'y',
                     text: 'Eat out to help out ends',
                     showarrow: true,
                     arrowhead: 7,
                     ax: 10,
-                    ay: -20
+                    ay: 20
                 },
                 {
                     x: "2020-09-03",
-                    y: Math.max(...casesBySpecimenDate) - 10,
                     xref: 'x',
                     yref: 'y',
                     text: 'Schools Return',
                     showarrow: true,
                     arrowhead: 7,
                     ax: 10,
-                    ay: 40
-                },
-                {
-                    x: "2020-11-05",
-                    y: Math.max(...casesBySpecimenDate) - 10,
-                    xref: 'x',
-                    yref: 'y',
-                    text: 'Second lockdown Starts',
-                    showarrow: true,
-                    arrowhead: 7,
-                    ax: 10,
                     ay: -40
                 },
                 {
-                    x: "2020-12-02",
-                    y: Math.max(...casesBySpecimenDate) - 10,
+                    x: "2020-11-05",
                     xref: 'x',
                     yref: 'y',
-                    text: 'Second lockdown Ends',
+                    text: 'Second lockdown<br>Starts',
                     showarrow: true,
                     arrowhead: 7,
-                    ax: 20,
-                    ay: -20
+                    ax: -10,
+                    ay: -30
+                },
+                {
+                    x: "2020-12-02",
+                    xref: 'x',
+                    yref: 'y',
+                    text: 'Second lockdown<br>Ends',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: -20,
+                    ay: -60
                 },
                 {
                     x: "2020-12-20",
-                    y: Math.max(...casesBySpecimenDate) - 10,
                     xref: 'x',
                     yref: 'y',
                     text: 'Tier 4 Introduced',
@@ -332,15 +321,18 @@ function generateGraph() {
             scrollZoom: true,
         }
 
-        let plot = [
-            { x: dates, y: deaths, type: 'scatter', mode: "lines", name: "Deaths", fill: 'tozeroy' },
+        let plotLarge = [
             { x: dates, y: casesBySpecimenDate, type: "scatter", mode: "lines", name: "Cases by Specimen date", fill: 'tozeroy' },
             { x: dates, y: casesDaily, type: "scatter", mode: "lines", name: "Cases Reported Daily", fill: "tozeroy" },
             { x: dates, y: hospitalCases, type: "scatter", mode: "lines", name: "Hospital Cases", fill: 'tozeroy' },
+        ];
+        let plotSmall = [
+            { x: dates, y: deaths, type: 'scatter', mode: "lines", name: "Deaths", fill: 'tozeroy' },
             { x: dates, y: covidOccupiedMVBeds, type: "scatter", mode: "lines", name: "Occupied ITU Bed", fill: 'tozeroy' }
         ];
         document.querySelector("h3").innerText = "Last 7 days of data";
-        Plotly.newPlot('myDiv', plot, layout, config);
+        Plotly.newPlot('plotLarge', plotLarge, layout, config);
+        Plotly.newPlot('plotSmall', plotSmall, layout, config);
 
         let table = document.querySelector("table");
         let keys = Object.keys(data[0]);
