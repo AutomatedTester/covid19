@@ -210,6 +210,20 @@ function generateGraph() {
                         width: 1.5,
                         dash: 'dot'
                     }
+                },
+                {
+                    name: "Christmas",
+                    type: "line",
+                    x0: '2020-12-25',
+                    y0: 0,
+                    x1: '2020-12-25',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
                 }
             ],
             annotations: [
@@ -312,6 +326,16 @@ function generateGraph() {
                     arrowhead: 7,
                     ax: 20,
                     ay: -20
+                },
+                {
+                    x: "2020-12-25",
+                    xref: 'x',
+                    yref: 'y',
+                    text: 'Christmas',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: -20,
+                    ay: -140
                 }
             ]
         };
