@@ -63,8 +63,6 @@ function generateGraph() {
             return obj.covidOccupiedMVBeds;
         });
 
-        let eatOutStart = [0, Math.max(...casesBySpecimenDate)]
-
         let layout = {
             xaxis: {
                 range: [dates[dates.length - 1], dates[0]],
