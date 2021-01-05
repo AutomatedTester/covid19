@@ -222,6 +222,20 @@ function generateGraph() {
                         width: 1.5,
                         dash: 'dot'
                     }
+                },
+                {
+                    name: "3rd National lockdown",
+                    type: "line",
+                    x0: '2021-01-05',
+                    y0: 0,
+                    x1: '2021-01-05',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
                 }
             ],
             annotations: [
@@ -330,6 +344,16 @@ function generateGraph() {
                     xref: 'x',
                     yref: 'y',
                     text: 'Christmas',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: -20,
+                    ay: -140
+                },
+                {
+                    x: "2021-01-05",
+                    xref: 'x',
+                    yref: 'y',
+                    text: '3rd National Lockdown',
                     showarrow: true,
                     arrowhead: 7,
                     ax: -20,
