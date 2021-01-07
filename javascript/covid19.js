@@ -17,9 +17,22 @@ let structure = {
     "deathsDaily": "newDeathsByDeathDate",
 }
 
+let vaccineStructure = {
+    "date": "date",
+    "newPeopleReceivingFirstDose": "newPeopleReceivingFirstDose",
+    "newPeopleReceivingSecondDose": "newPeopleReceivingSecondDose",
+    "cumPeopleReceivingFirstDose": "cumPeopleReceivingFirstDose",
+    "cumPeopleReceivingSecondDose": "cumPeopleReceivingSecondDose",
+}
+
 let apiParams = {
     filters: filters.join(";"),
     structure: JSON.stringify(structure)
+}
+
+let vaccineParams = {
+    filters: filters.join(";"),
+    structure: JSON.stringify(vaccineStructure)
 }
 
 async function update() {
@@ -31,6 +44,16 @@ async function update() {
 
     const response = await fetch(encodeURI(ENDPOINT + "?" + params));
     return response.json()
+}
+
+async function updateVaccine() {
+    let params = "";
+    for (key in apiParams) {
+        params += `${key}=${vaccineParams[key]}&`;
+    }
+
+    const response = await fetch(encodeURI(ENDPOINT + "?" + params));
+    return response.json();
 }
 
 function generateGraph() {
@@ -384,5 +407,31 @@ function generateGraph() {
         let keys = Object.keys(data[0]);
         generateTableHead(table, keys);
         generateTable(table, data.slice(0, 7));
+    });
+
+    updateVaccine().then(d => {
+        let data = d.data;
+        let dates = data.map(obj => {
+            return obj.date;
+        });
+
+        let newPeopleReceivingFirstDose = data.map(obj => {
+            return obj.newPeopleReceivingFirstDose;
+        });
+
+        let newPeopleReceivingSecondDose = data.map(obj => {
+            return obj.newPeopleReceivingSecondDose;
+        });
+
+        let plotVaccine = [
+            { x: dates, y: newPeopleReceivingFirstDose, type: "scatter", mode: "lines", name: "People Receiving First Dose", fill: 'tozeroy' },
+            { x: dates, y: newPeopleReceivingSecondDose, type: "scatter", mode: "lines", name: "People Receiving Second Dose", fill: 'tozeroy' }
+        ];
+        let config = {
+            responsive: true,
+            scrollZoom: true,
+        }
+
+        Plotly.newPlot('plotVaccine', plotVaccine, config);
     });
 }
