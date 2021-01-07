@@ -286,7 +286,7 @@ function generateGraph() {
                     text: 'Indoor Events <br> Close-contact beauty services',
                     showarrow: true,
                     arrowhead: 7,
-                    ax: -30,
+                    ax: 0,
                     ay: -100
                 },
                 {
@@ -333,11 +333,11 @@ function generateGraph() {
                     x: "2020-12-20",
                     xref: 'x',
                     yref: 'y',
-                    text: 'Tier 4 Introduced',
+                    text: 'Tier 4<br>Introduced',
                     showarrow: true,
                     arrowhead: 7,
-                    ax: 20,
-                    ay: -20
+                    ax: -10,
+                    ay: -30
                 },
                 {
                     x: "2020-12-25",
@@ -356,8 +356,8 @@ function generateGraph() {
                     text: '3rd National Lockdown',
                     showarrow: true,
                     arrowhead: 7,
-                    ax: -20,
-                    ay: -140
+                    ax: -10,
+                    ay: -100
                 }
             ]
         };
