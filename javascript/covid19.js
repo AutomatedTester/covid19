@@ -35,56 +35,42 @@ let vaccineParams = {
     structure: JSON.stringify(vaccineStructure)
 }
 
-async function update() {
+let config = {
+    responsive: true,
+    scrollZoom: true,
+}
 
-    let params = "";
-    for (key in apiParams) {
-        params += `${key}=${apiParams[key]}&`;
+function mapData(data, key) {
+    return data.map(obj => {
+        return obj[key];
+    })
+}
+
+function generateParams(params) {
+    let _params = "";
+    for (key in params) {
+        _params += `${key}=${params[key]}&`;
     }
+    return _params;
+}
 
-    const response = await fetch(encodeURI(ENDPOINT + "?" + params));
+async function update() {
+    const response = await fetch(encodeURI(ENDPOINT + "?" + generateParams(apiParams)));
     return response.json()
 }
 
 async function updateVaccine() {
-    let params = "";
-    for (key in apiParams) {
-        params += `${key}=${vaccineParams[key]}&`;
-    }
-
-    const response = await fetch(encodeURI(ENDPOINT + "?" + params));
+    const response = await fetch(encodeURI(ENDPOINT + "?" + generateParams(vaccineParams)));
     return response.json();
 }
 
 function generateGraph() {
     update().then(d => {
         let data = d.data;
-        let dates = data.map(obj => {
-            return obj.date;
-        });
+        let dates = mapData(data, "date");
 
         lastDate = dates[0];
         document.getElementById("lastUpdated").innerText = `Last updated: ${lastDate}`;
-
-        let deaths = data.map(obj => {
-            return obj.deathsDaily;
-        });
-
-        let casesBySpecimenDate = data.map(obj => {
-            return obj.casesBySpecimenDate;
-        });
-
-        let casesDaily = data.map(obj => {
-            return obj.casesDaily;
-        })
-
-        let hospitalCases = data.map(obj => {
-            return obj.hospitalCases;
-        });
-
-        let covidOccupiedMVBeds = data.map(obj => {
-            return obj.covidOccupiedMVBeds;
-        });
 
         let layout = {
             xaxis: {
@@ -385,19 +371,14 @@ function generateGraph() {
             ]
         };
 
-        let config = {
-            responsive: true,
-            scrollZoom: true,
-        }
-
         let plotLarge = [
-            { x: dates, y: casesBySpecimenDate, type: "scatter", mode: "lines", name: "Cases by Specimen date", fill: 'tozeroy' },
-            { x: dates, y: casesDaily, type: "scatter", mode: "lines", name: "Cases Reported Daily", fill: "tozeroy" },
-            { x: dates, y: hospitalCases, type: "scatter", mode: "lines", name: "Hospital Cases", fill: 'tozeroy' },
+            { x: dates, y: mapData(data, "casesBySpecimenDate"), type: "scatter", mode: "lines", name: "Cases by Specimen date", fill: 'tozeroy' },
+            { x: dates, y: mapData(data, "casesDaily"), type: "scatter", mode: "lines", name: "Cases Reported Daily", fill: "tozeroy" },
+            { x: dates, y: mapData(data, "hospitalCases"), type: "scatter", mode: "lines", name: "Hospital Cases", fill: 'tozeroy' },
         ];
         let plotSmall = [
-            { x: dates, y: deaths, type: 'scatter', mode: "lines", name: "Deaths", fill: 'tozeroy' },
-            { x: dates, y: covidOccupiedMVBeds, type: "scatter", mode: "lines", name: "Occupied ITU Bed", fill: 'tozeroy' }
+            { x: dates, y: mapData(data, "deathsDaily"), type: 'scatter', mode: "lines", name: "Deaths", fill: 'tozeroy' },
+            { x: dates, y: mapData(data, "covidOccupiedMVBeds"), type: "scatter", mode: "lines", name: "Occupied ITU Bed", fill: 'tozeroy' }
         ];
         document.querySelector("h3").innerText = "Last 7 days of data";
         Plotly.newPlot('plotLarge', plotLarge, layout, config);
@@ -411,26 +392,11 @@ function generateGraph() {
 
     updateVaccine().then(d => {
         let data = d.data;
-        let dates = data.map(obj => {
-            return obj.date;
-        });
-
-        let newPeopleReceivingFirstDose = data.map(obj => {
-            return obj.newPeopleReceivingFirstDose;
-        });
-
-        let newPeopleReceivingSecondDose = data.map(obj => {
-            return obj.newPeopleReceivingSecondDose;
-        });
 
         let plotVaccine = [
-            { x: dates, y: newPeopleReceivingFirstDose, type: "scatter", mode: "lines", name: "People Receiving First Dose", fill: 'tozeroy' },
-            { x: dates, y: newPeopleReceivingSecondDose, type: "scatter", mode: "lines", name: "People Receiving Second Dose", fill: 'tozeroy' }
+            { x: mapData(data, "date"), y: mapData(data, "newPeopleReceivingFirstDose"), type: "scatter", mode: "lines", name: "People Receiving First Dose", fill: 'tozeroy' },
+            { x: mapData(data, "date"), y: mapData(data, "newPeopleReceivingSecondDose"), type: "scatter", mode: "lines", name: "People Receiving Second Dose", fill: 'tozeroy' }
         ];
-        let config = {
-            responsive: true,
-            scrollZoom: true,
-        }
 
         Plotly.newPlot('plotVaccine', plotVaccine, config);
     });
