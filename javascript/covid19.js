@@ -60,7 +60,7 @@ async function update() {
 }
 
 async function updateVaccine() {
-    const response = await fetch(encodeURI(ENDPOINT + "?" + generateParams(vaccineParams)));
+    const response = await fetch(ENDPOINT + "?" + 'filters=areaType=nation&structure={"date":"date","weeklyPeopleVaccinatedFirstDoseByVaccinationDate":"weeklyPeopleVaccinatedFirstDoseByVaccinationDate","cumPeopleVaccinatedFirstDoseByVaccinationDate":"cumPeopleVaccinatedFirstDoseByVaccinationDate","weeklyPeopleVaccinatedSecondDoseByVaccinationDate":"weeklyPeopleVaccinatedSecondDoseByVaccinationDate","cumPeopleVaccinatedSecondDoseByVaccinationDate":"cumPeopleVaccinatedSecondDoseByVaccinationDate"}&format=json');
     return response.json();
 }
 
@@ -394,8 +394,8 @@ function generateGraph() {
         let data = d.data;
 
         let plotVaccine = [
-            { x: mapData(data, "date"), y: mapData(data, "newPeopleReceivingFirstDose"), type: "scatter", mode: "lines", name: "People Receiving First Dose", fill: 'tozeroy' },
-            { x: mapData(data, "date"), y: mapData(data, "newPeopleReceivingSecondDose"), type: "scatter", mode: "lines", name: "People Receiving Second Dose", fill: 'tozeroy' }
+            { x: mapData(data, "date"), y: mapData(data, "weeklyPeopleVaccinatedFirstDoseByVaccinationDate"), type: "bar", mode: "lines", name: "People Receiving First Dose", fill: 'tozeroy' },
+            { x: mapData(data, "date"), y: mapData(data, "weeklyPeopleVaccinatedSecondDoseByVaccinationDate"), type: "bar", mode: "lines", name: "People Receiving Second Dose", fill: 'tozeroy' }
         ];
 
         Plotly.newPlot('plotVaccine', plotVaccine, config);
