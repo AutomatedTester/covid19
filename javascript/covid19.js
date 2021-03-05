@@ -245,6 +245,20 @@ function generateGraph() {
                         width: 1.5,
                         dash: 'dot'
                     }
+                },
+                {
+                    name: "Schools Returns",
+                    type: "line",
+                    x0: '2021-03-08',
+                    y0: 0,
+                    x1: '2021-03-08',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
                 }
             ],
             annotations: [
@@ -363,6 +377,16 @@ function generateGraph() {
                     xref: 'x',
                     yref: 'y',
                     text: '3rd National Lockdown',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: -10,
+                    ay: -100
+                },
+                {
+                    x: "2021-03-08",
+                    xref: 'x',
+                    yref: 'y',
+                    text: 'Schools Return',
                     showarrow: true,
                     arrowhead: 7,
                     ax: -10,
