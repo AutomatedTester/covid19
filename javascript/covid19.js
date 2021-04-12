@@ -390,7 +390,7 @@ function generateGraph() {
                     showarrow: true,
                     arrowhead: 7,
                     ax: -10,
-                    ay: -100
+                    ay: -90
                 }
             ]
         };
