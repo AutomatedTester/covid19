@@ -14,7 +14,7 @@ function generateTable(table, data) {
         let row = table.insertRow();
         for (key in element) {
             let cell = row.insertCell();
-            let text = document.createTextNode(element[key]);
+            let text = document.createTextNode(element[key] ? element[key] : 0);
             cell.appendChild(text);
         }
     }

@@ -42,7 +42,7 @@ let config = {
 
 function mapData(data, key) {
     return data.map(obj => {
-        return obj[key];
+        return obj[key] ? obj[key] : 0;
     })
 }
 
