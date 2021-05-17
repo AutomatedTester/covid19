@@ -273,6 +273,20 @@ function generateGraph() {
                         width: 1.5,
                         dash: 'dot'
                     }
+                },
+                {
+                    name: "Indoor Dining, Cinemas, indoor visits<br/> and overnight stays",
+                    type: "line",
+                    x0: '2021-05-17',
+                    y0: 0,
+                    x1: '2021-05-17',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
                 }
             ],
             annotations: [
@@ -415,6 +429,16 @@ function generateGraph() {
                     arrowhead: 7,
                     ax: 10,
                     ay: -70
+                },
+                {
+                    x: "2021-05-17",
+                    xref: 'x',
+                    yref: 'y',
+                    text: '"Indoor Dining, Cinemas, indoor visits<br/> and overnight stays",',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: -10,
+                    ay: -100
                 }
             ]
         };
