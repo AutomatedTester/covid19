@@ -434,7 +434,7 @@ function generateGraph() {
                     x: "2021-05-17",
                     xref: 'x',
                     yref: 'y',
-                    text: '"Indoor Dining, Cinemas, indoor visits<br/> and overnight stays",',
+                    text: '"Indoor Dining, Cinemas, indoor visits<br> and overnight stays",',
                     showarrow: true,
                     arrowhead: 7,
                     ax: -10,
