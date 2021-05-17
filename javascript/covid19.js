@@ -261,7 +261,7 @@ function generateGraph() {
                     }
                 },
                 {
-                    name: "Pubs, Hairdressers, Gyms,<br/> and non-essential shops reopen",
+                    name: "Outdoor Dining, Hairdressers, Gyms,<br/> and non-essential shops reopen",
                     type: "line",
                     x0: '2021-03-08',
                     y0: 0,
