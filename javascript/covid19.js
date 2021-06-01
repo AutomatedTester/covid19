@@ -263,9 +263,9 @@ function generateGraph() {
                 {
                     name: "Outdoor Dining, Hairdressers, Gyms,<br/> and non-essential shops reopen",
                     type: "line",
-                    x0: '2021-03-08',
+                    x0: '2021-04-12',
                     y0: 0,
-                    x1: '2021-03-08',
+                    x1: '2021-04-12',
                     yref: 'paper',
                     y1: 1,
                     line: {
