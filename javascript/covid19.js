@@ -14,7 +14,7 @@ let structure = {
     "covidOccupiedMVBeds": "covidOccupiedMVBeds",
     "hospitalCases": "hospitalCases",
     "casesDaily": "newCasesByPublishDate",
-    "deathsDaily": "newDeathsByDeathDate",
+    "deathsDaily": "newDeaths28DaysByDeathDate",
 }
 
 let vaccineStructure = {
