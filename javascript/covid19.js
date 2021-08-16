@@ -291,9 +291,23 @@ function generateGraph() {
                 {
                     name: "Mask mandates<br/> and social distancing mandates removed.",
                     type: "line",
-                    x0: '2021-05-17',
+                    x0: '2021-07-19',
                     y0: 0,
-                    x1: '2021-05-17',
+                    x1: '2021-07-19',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
+                },
+                {
+                    name: "Close contacts no longer required to isolate<br> if fully vaccinated or under 18.",
+                    type: "line",
+                    x0: '2021-08-16',
+                    y0: 0,
+                    x1: '2021-08-16',
                     yref: 'paper',
                     y1: 1,
                     line: {
@@ -463,6 +477,16 @@ function generateGraph() {
                     arrowhead: 7,
                     ax: -10,
                     ay: -135
+                },
+                {
+                    x: "2021-08-16",
+                    xref: 'x',
+                    yref: 'y',
+                    text: '"Close contacts no longer required to isolate<br> if fully vaccinated or under 18",',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: -10,
+                    ay: -85
                 }
             ]
         };
