@@ -446,7 +446,7 @@ function generateGraph() {
                     showarrow: true,
                     arrowhead: 7,
                     ax: -10,
-                    ay: -90
+                    ay: -20
                 },
                 {
                     x: "2021-04-12",
@@ -456,7 +456,7 @@ function generateGraph() {
                     showarrow: true,
                     arrowhead: 7,
                     ax: 10,
-                    ay: -70
+                    ay: -60
                 },
                 {
                     x: "2021-05-17",
@@ -486,7 +486,7 @@ function generateGraph() {
                     showarrow: true,
                     arrowhead: 7,
                     ax: -10,
-                    ay: -85
+                    ay: -30
                 }
             ]
         };
