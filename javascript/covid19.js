@@ -315,6 +315,20 @@ function generateGraph() {
                         width: 1.5,
                         dash: 'dot'
                     }
+                },
+                {
+                    name: "Schools return",
+                    type: "line",
+                    x0: '2021-09-02',
+                    y0: 0,
+                    x1: '2021-08-02',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
                 }
             ],
             annotations: [
@@ -487,6 +501,16 @@ function generateGraph() {
                     arrowhead: 7,
                     ax: -10,
                     ay: -30
+                },
+                {
+                    x: "2021-09-02",
+                    xref: 'x',
+                    yref: 'y',
+                    text: '"Schools return",',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: -10,
+                    ay: -60
                 }
             ]
         };
