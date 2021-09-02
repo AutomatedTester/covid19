@@ -321,7 +321,7 @@ function generateGraph() {
                     type: "line",
                     x0: '2021-09-02',
                     y0: 0,
-                    x1: '2021-08-02',
+                    x1: '2021-09-02',
                     yref: 'paper',
                     y1: 1,
                     line: {
