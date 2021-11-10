@@ -540,9 +540,9 @@ function generateGraph() {
         let data = d.data;
 
         let plotVaccine = [
-            { x: mapData(data, "date"), y: mapData(data, "newPeopleVaccinatedFirstDoseByPublishDate"), type: "bar", mode: "lines", name: "People Receiving First Dose", fill: 'tozeroy' },
-            { x: mapData(data, "date"), y: mapData(data, "newPeopleVaccinatedSecondDoseByPublishDate"), type: "bar", mode: "lines", name: "People Receiving Second Dose", fill: 'tozeroy' },
-            { x: mapData(data, "date"), y: mapData(data, "newPeopleVaccinatedThirdInjectionByPublishDate"), type: "bar", mode: "lines", name: "People Receiving Third Dose", fill: 'tozeroy' },
+            { x: mapData(data, "date"), y: mapData(data, "cumPeopleVaccinatedFirstDoseByPublishDate"), type: "bar", mode: "lines", name: "People Receiving First Dose", fill: 'tozeroy' },
+            { x: mapData(data, "date"), y: mapData(data, "cumPeopleVaccinatedSecondDoseByPublishDate"), type: "bar", mode: "lines", name: "People Receiving Second Dose", fill: 'tozeroy' },
+            { x: mapData(data, "date"), y: mapData(data, "cumPeopleVaccinatedThirdInjectionByPublishDate"), type: "bar", mode: "lines", name: "People Receiving Third Dose", fill: 'tozeroy' },
         ];
 
         Plotly.newPlot('plotVaccine', plotVaccine, config);
