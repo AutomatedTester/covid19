@@ -19,11 +19,11 @@ let structure = {
 
 let vaccineStructure = {
     "date": "date",
-    "newPeopleReceivingFirstDose": "newPeopleReceivingFirstDose",
-    "newPeopleReceivingSecondDose": "newPeopleReceivingSecondDose",
+    "newPeopleVaccinatedFirstDoseByPublishDate": "newPeopleVaccinatedFirstDoseByPublishDate",
+    "newPeopleVaccinatedSecondDoseByPublishDate": "newPeopleVaccinatedSecondDoseByPublishDate",
     "newPeopleVaccinatedThirdInjectionByPublishDate": "newPeopleVaccinatedThirdInjectionByPublishDate",
-    "cumPeopleReceivingFirstDose": "cumPeopleReceivingFirstDose",
-    "cumPeopleReceivingSecondDose": "cumPeopleReceivingSecondDose",
+    "cumPeopleVaccinatedFirstDoseByPublishDate": "cumPeopleVaccinatedFirstDoseByPublishDate",
+    "cumPeopleVaccinatedSecondDoseByPublishDate": "cumPeopleVaccinatedSecondDoseByPublishDate",
     "cumPeopleVaccinatedThirdInjectionByPublishDate": "cumPeopleVaccinatedThirdInjectionByPublishDate"
 }
 
@@ -62,7 +62,7 @@ async function update() {
 }
 
 async function updateVaccine() {
-    const response = await fetch(ENDPOINT + "?" + 'filters=areaType=nation&areaName=England&structure={"areaType": "areaType", "areaName": "areaName", "areaCode": "areaCode", "date": "date", "newPeopleVaccinatedFirstDoseByPublishDate": "newPeopleVaccinatedFirstDoseByPublishDate", "cumPeopleVaccinatedFirstDoseByPublishDate": "cumPeopleVaccinatedFirstDoseByPublishDate", "newPeopleVaccinatedSecondDoseByPublishDate": "newPeopleVaccinatedSecondDoseByPublishDate", "newPeopleVaccinatedThirdInjectionByPublishDate":"newPeopleVaccinatedThirdInjectionByPublishDate","cumPeopleVaccinatedSecondDoseByPublishDate": "cumPeopleVaccinatedSecondDoseByPublishDate","cumPeopleVaccinatedThirdInjectionByPublishDate":"cumPeopleVaccinatedThirdInjectionByPublishDate"}&format=json');
+    const response = await fetch(ENDPOINT + "?" + generateParams(vaccineParams) + "format=json");
     return response.json();
 }
 
