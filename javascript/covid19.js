@@ -331,6 +331,20 @@ function generateGraph() {
                         width: 1.5,
                         dash: 'dot'
                     }
+                },
+                {
+                    name: "Mask Mandates return/Plan B",
+                    type: "line",
+                    x0: '2021-12-10',
+                    y0: 0,
+                    x1: '2021-12-10',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
                 }
             ],
             annotations: [
@@ -513,6 +527,16 @@ function generateGraph() {
                     arrowhead: 7,
                     ax: -10,
                     ay: -60
+                },
+                {
+                    x: "2021-12-10",
+                    xref: 'x',
+                    yref: 'y',
+                    text: '"Mask Mandates returns/Plan B",',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: -10,
+                    ay: -60
                 }
             ]
         };
@@ -546,5 +570,10 @@ function generateGraph() {
         ];
 
         Plotly.newPlot('plotVaccine', plotVaccine, config);
+        let table = document.getElementById("vaccineTotals");
+        let keys = ["Total People Vaccinated by First Dose", "Total People Vaccinated by Second Dose", "Total People Vaccinated by Third Dose"]
+        generateTableHead(table, keys);
+        let vaccineTotals = data.slice(0, 1);
+        generateTable(table, [vaccineTotals["cumPeopleVaccinatedFirstDoseByPublishDate"], vaccineTotals["cumPeopleVaccinatedSecondDoseByPublishDate"], vaccineTotals["cumPeopleVaccinatedThirdInjectionByPublishDate"]])
     });
 }
