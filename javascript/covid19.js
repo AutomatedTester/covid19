@@ -541,19 +541,22 @@ function generateGraph() {
             ]
         };
 
-        let plotLarge = [
+        let cases = [
             { x: dates, y: mapData(data, "casesBySpecimenDate"), type: "scatter", mode: "lines", name: "Cases by Specimen date", fill: 'tozeroy' },
             { x: dates, y: mapData(data, "casesDaily"), type: "scatter", mode: "lines", name: "Cases Reported Daily", fill: "tozeroy" },
-            { x: dates, y: mapData(data, "hospitalCases"), type: "scatter", mode: "lines", name: "Hospital Cases", fill: 'tozeroy' },
+
         ];
-        let plotSmall = [
-            { x: dates, y: mapData(data, "deathsDaily"), type: 'scatter', mode: "lines", name: "Deaths", fill: 'tozeroy' },
+        let hospital = [
+            { x: dates, y: mapData(data, "hospitalCases"), type: "scatter", mode: "lines", name: "Hospital Cases", fill: 'tozeroy' },
             { x: dates, y: mapData(data, "covidOccupiedMVBeds"), type: "scatter", mode: "lines", name: "Occupied ITU Bed", fill: 'tozeroy' }
         ];
-        document.querySelector("h3").innerText = "Last 7 days of data";
-        Plotly.newPlot('plotLarge', plotLarge, layout, config);
-        Plotly.newPlot('plotSmall', plotSmall, layout, config);
+        let deaths = [{ x: dates, y: mapData(data, "deathsDaily"), type: 'scatter', mode: "lines", name: "Deaths", fill: 'tozeroy' }];
 
+        Plotly.newPlot('plotCases', cases, layout, config);
+        Plotly.newPlot('plotHospital', hospital, layout, config);
+        Plotly.newPlot('plotDeaths', deaths, layout, config);
+
+        document.querySelector("h3").innerText = "Last 7 days of data";
         let table = document.querySelector("table");
         let keys = Object.keys(data[0]);
         generateTableHead(table, keys);
