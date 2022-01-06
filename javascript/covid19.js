@@ -1,7 +1,7 @@
-ENDPOINT = "https://api.coronavirus.data.gov.uk/v1/data"
+const ENDPOINT = "https://api.coronavirus.data.gov.uk/v1/data"
 
-AREA_TYPE = "nation"
-AREA_NAME = "england"
+const AREA_TYPE = "nation"
+const AREA_NAME = "england"
 
 let filters = [
     `areaType=${AREA_TYPE}`,
