@@ -359,6 +359,20 @@ function generateGraph() {
                         width: 1.5,
                         dash: 'dot'
                     }
+                },
+                {
+                    name: "School Spring Term Starts",
+                    type: "line",
+                    x0: '2022-01-05',
+                    y0: 0,
+                    x1: '2022-01-05',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
                 }
             ],
             annotations: [
@@ -561,6 +575,16 @@ function generateGraph() {
                     arrowhead: 7,
                     ax: -10,
                     ay: -90
+                },
+                {
+                    x: "2022-01-05",
+                    xref: 'x',
+                    yref: 'y',
+                    text: 'School Spring Term Starts',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: -10,
+                    ay: -120
                 }
             ]
         };
