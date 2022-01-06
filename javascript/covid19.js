@@ -19,9 +19,6 @@ let structure = {
 
 let vaccineStructure = {
     "date": "date",
-    "newPeopleVaccinatedFirstDoseByPublishDate": "newPeopleVaccinatedFirstDoseByPublishDate",
-    "newPeopleVaccinatedSecondDoseByPublishDate": "newPeopleVaccinatedSecondDoseByPublishDate",
-    "newPeopleVaccinatedThirdInjectionByPublishDate": "newPeopleVaccinatedThirdInjectionByPublishDate",
     "cumPeopleVaccinatedFirstDoseByPublishDate": "cumPeopleVaccinatedFirstDoseByPublishDate",
     "cumPeopleVaccinatedSecondDoseByPublishDate": "cumPeopleVaccinatedSecondDoseByPublishDate",
     "cumPeopleVaccinatedThirdInjectionByPublishDate": "cumPeopleVaccinatedThirdInjectionByPublishDate"
@@ -622,9 +619,9 @@ function generateGraph() {
 
         Plotly.newPlot('plotVaccine', plotVaccine, config);
         let table = document.getElementById("vaccineTotals");
-        let keys = ["Total People Vaccinated by First Dose", "Total People Vaccinated by Second Dose", "Total People Vaccinated by Third Dose"]
+        let keys = ["Date", "Total People Vaccinated by First Dose", "Total People Vaccinated by Second Dose", "Total People Vaccinated by Third Dose"]
         generateTableHead(table, keys);
         let vaccineTotals = data.slice(0, 1);
-        generateTable(table, [vaccineTotals["cumPeopleVaccinatedFirstDoseByPublishDate"], vaccineTotals["cumPeopleVaccinatedSecondDoseByPublishDate"], vaccineTotals["cumPeopleVaccinatedThirdInjectionByPublishDate"]])
+        generateTable(table, vaccineTotals)
     });
 }
