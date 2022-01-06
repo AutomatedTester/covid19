@@ -624,4 +624,44 @@ function generateGraph() {
         let vaccineTotals = data.slice(0, 1);
         generateTable(table, vaccineTotals)
     });
+
+    fetch("https://api.coronavirus.data.gov.uk/generic/announcements/latest")
+        .then(response => response.json())
+        .then(data => {
+            const notificationContainer = document.getElementById('notification-container');
+            console.log(`The Data is ${data}`);
+            if (data != "") {
+                const info = addNotification(`${data}`, notificationContainer);
+                setTimeout(() => {
+                    removeNotification(info, notificationContainer);
+                }, 5000);
+            }
+        })
+}
+
+function addNotification(text, notificationContainer) {
+    // create the DIV and add the required classes
+    const newNotification = document.createElement('div');
+    newNotification.classList.add('notification', `notification-info`);
+
+    const innerNotification = `
+		<strong>Info:</strong> ${text}
+	`;
+
+    // insert the inner elements
+    newNotification.innerHTML = innerNotification;
+
+    // add the newNotification to the container
+    notificationContainer.appendChild(newNotification);
+
+    return newNotification;
+}
+
+function removeNotification(notification, notificationContainer) {
+    notification.classList.add('hide');
+
+    // remove notification from the DOM after 0.5 seconds
+    setTimeout(() => {
+        notificationContainer.removeChild(notification);
+    }, 500);
 }
