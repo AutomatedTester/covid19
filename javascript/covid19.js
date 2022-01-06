@@ -345,6 +345,20 @@ function generateGraph() {
                         width: 1.5,
                         dash: 'dot'
                     }
+                },
+                {
+                    name: "Christmas",
+                    type: "line",
+                    x0: '2021-12-25',
+                    y0: 0,
+                    x1: '2021-12-25',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
                 }
             ],
             annotations: [
@@ -522,7 +536,7 @@ function generateGraph() {
                     x: "2021-09-02",
                     xref: 'x',
                     yref: 'y',
-                    text: '"Schools return",',
+                    text: 'Schools return',
                     showarrow: true,
                     arrowhead: 7,
                     ax: -10,
@@ -532,11 +546,21 @@ function generateGraph() {
                     x: "2021-12-10",
                     xref: 'x',
                     yref: 'y',
-                    text: '"Mask Mandates returns/Plan B",',
+                    text: 'Mask Mandates returns/Plan B',
                     showarrow: true,
                     arrowhead: 7,
                     ax: -10,
                     ay: -60
+                },
+                {
+                    x: "2021-12-25",
+                    xref: 'x',
+                    yref: 'y',
+                    text: 'Christmas',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: -10,
+                    ay: -90
                 }
             ]
         };
