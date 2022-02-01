@@ -630,8 +630,8 @@ function generateGraph() {
         .then(data => {
             const notificationContainer = document.getElementById('notification-container');
             console.log(`The Data is ${data}`);
-            if (data != "") {
-                const info = addNotification(`${data}`, notificationContainer);
+            if (data && data.body != "") {
+                const info = addNotification(`${data.body}`, notificationContainer);
                 setTimeout(() => {
                     removeNotification(info, notificationContainer);
                 }, 5000);
