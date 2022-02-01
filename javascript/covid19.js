@@ -24,6 +24,12 @@ let vaccineStructure = {
     "cumPeopleVaccinatedThirdInjectionByPublishDate": "cumPeopleVaccinatedThirdInjectionByPublishDate"
 }
 
+let reinfectionStructure = {
+    "date": "date",
+    "newCasesBySpecimenDate": "newCasesBySpecimenDate",
+    "newFirstEpisodesBySpecimenDate": "newFirstEpisodesBySpecimenDate"
+}
+
 let apiParams = {
     filters: filters.join(";"),
     structure: JSON.stringify(structure)
@@ -32,6 +38,11 @@ let apiParams = {
 let vaccineParams = {
     filters: filters.join(";"),
     structure: JSON.stringify(vaccineStructure)
+}
+
+let reinfectionParams = {
+    filters: filters.join(";"),
+    structure: JSON.stringify(reinfectionStructure)
 }
 
 let config = {
@@ -61,6 +72,11 @@ async function update() {
 async function updateVaccine() {
     const response = await fetch(ENDPOINT + "?" + generateParams(vaccineParams) + "format=json");
     return response.json();
+}
+
+async function updateReinfections() {
+    const response = await fetch(encodeURI(ENDPOINT + "?" + generateParams(reinfectionParams)));
+    return response.json()
 }
 
 function generateGraph() {
@@ -607,6 +623,26 @@ function generateGraph() {
         generateTableHead(table, keys);
         generateTable(table, data.slice(0, 7));
     });
+
+    updateReinfections()
+        .then(d => {
+            let data = d.data;
+            let dates = mapData(data, "date");
+
+            let layout = {
+                xaxis: {
+                    range: [dates[dates.length - 1], dates[0]],
+                    autorange: false
+                },
+            }
+
+            let cases = [
+                { x: dates, y: mapData(data, "newCasesBySpecimenDate"), type: "scatter", mode: "lines", name: "Cases by Specimen Date", fill: 'tozeroy' },
+                { x: dates, y: mapData(data, "newFirstEpisodesBySpecimenDate"), type: "scatter", mode: "lines", name: "First Cases of Covid by Specimen Date", fill: "tozeroy" },
+            ];
+
+            Plotly.newPlot('plotReinfection', cases, layout, config);
+        })
 
     updateVaccine().then(d => {
         let data = d.data;
