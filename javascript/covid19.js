@@ -635,10 +635,16 @@ function generateGraph() {
                     autorange: false
                 },
             }
+            let newCases = mapData(data, "newCasesBySpecimenDate");
+            let firstEpisode = mapData(data, "newFirstEpisodesBySpecimenDate");
+            let newCasesLength = newCases.length - 1
+            let results = [];
+            for (let i = 0; i < newCasesLength; i++) {
+                results.push(((newCases[i] - firstEpisode[i]) / newCases[i]) * 100)
+            }
 
             let cases = [
-                { x: dates, y: mapData(data, "newCasesBySpecimenDate"), type: "scatter", mode: "lines", name: "Cases by Specimen Date", fill: 'tozeroy' },
-                { x: dates, y: mapData(data, "newFirstEpisodesBySpecimenDate"), type: "scatter", mode: "lines", name: "First Cases of Covid by Specimen Date", fill: "tozeroy" },
+                { x: dates, y: results, type: "scatter", mode: "lines", name: "Percentage of reinfections", fill: 'tozeroy' },
             ];
 
             Plotly.newPlot('plotReinfection', cases, layout, config);
