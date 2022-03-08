@@ -386,6 +386,34 @@ function generateGraph() {
                         width: 1.5,
                         dash: 'dot'
                     }
+                },
+                {
+                    name: "Schools no longer need to test twice a week",
+                    type: "line",
+                    x0: '2022-02-21',
+                    y0: 0,
+                    x1: '2022-02-21',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
+                },
+                {
+                    name: "Positive Cases no longer need to isolate",
+                    type: "line",
+                    x0: '2022-02-24',
+                    y0: 0,
+                    x1: '2022-02-24',
+                    yref: 'paper',
+                    y1: 1,
+                    line: {
+                        color: 'grey',
+                        width: 1.5,
+                        dash: 'dot'
+                    }
                 }
             ],
             annotations: [
@@ -598,7 +626,28 @@ function generateGraph() {
                     arrowhead: 7,
                     ax: -10,
                     ay: -120
-                }
+                },
+                {
+                    x: "2022-02-21",
+                    xref: 'x',
+                    yref: 'y',
+                    text: 'Schools no longer need to test twice a week',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: -10,
+                    ay: -100
+                },
+                {
+                    x: "2022-02-24",
+                    xref: 'x',
+                    yref: 'y',
+                    text: 'Positive Cases no longer need to isolate',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: 10,
+                    ay: -140
+                },
+
             ]
         };
 
